@@ -1451,6 +1451,47 @@
       text-transform: uppercase;
     }
 
+    .cricket-tooltip {
+      position: absolute;
+      bottom: 42px;
+      right: 100px;
+      z-index: 140;
+      background: rgba(26, 39, 68, 0.95);
+      border: 1.5px solid #ffd700;
+      color: #ffd700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      animation: tooltipBounce 2s infinite ease-in-out;
+    }
+
+    .cricket-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -6px;
+      transform: translateY(-50%) rotate(45deg);
+      width: 10px;
+      height: 10px;
+      background: rgba(26, 39, 68, 0.95);
+      border-right: 1.5px solid #ffd700;
+      border-top: 1.5px solid #ffd700;
+    }
+
+    @keyframes tooltipBounce {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-6px);
+      }
+    }
+
     /* ══ CRICKET FLOATING BUTTON & OVERLAY ══ */
     .cricket-btn {
       position: absolute;
@@ -1611,6 +1652,7 @@
 
     /* ══ MOBILE RESPONSIVENESS ══ */
     @media (max-width: 768px) {
+
       /* Navigation Arrows */
       .nav-arrow {
         width: 38px;
@@ -1618,8 +1660,14 @@
         font-size: 18px;
         z-index: 410;
       }
-      #nav-prev { left: 8px; }
-      #nav-next { right: 8px; }
+
+      #nav-prev {
+        left: 8px;
+      }
+
+      #nav-next {
+        right: 8px;
+      }
 
       /* Slide 1 - Hero */
       #s1 .hero-img {
@@ -1628,9 +1676,11 @@
         position: relative;
         object-position: center top;
       }
+
       #s1 .hero-overlay {
         background: linear-gradient(to bottom, rgba(250, 248, 243, 0) 0%, rgba(250, 248, 243, 0.8) 35%, rgba(250, 248, 243, 1) 100%);
       }
+
       #s1 .hero-content {
         width: 100%;
         height: 58%;
@@ -1640,22 +1690,27 @@
         align-items: center;
         text-align: center;
       }
+
       #s1 .s1-logo {
         display: none;
       }
+
       #s1 .s1-tags {
         margin-left: 0;
         justify-content: center;
         gap: 6px;
         margin-top: 10px;
       }
+
       #s1 .s1-tag {
         padding: 8px 4px;
         font-size: 10px;
       }
+
       #s1 .s1-tag span:first-child {
         font-size: 16px;
       }
+
       #s1 .s1-corner {
         display: none;
       }
@@ -1669,25 +1724,31 @@
         gap: 16px;
         align-items: center;
       }
+
       #s3 .s3-left {
         width: 100%;
         gap: 12px;
       }
+
       #s3 .s3-right {
         width: 100%;
         gap: 12px;
       }
+
       #s3 .s3-photo {
         width: 120px;
         height: 140px;
       }
+
       #s3 .s3-bento {
         grid-template-columns: 1fr 1fr;
         gap: 6px;
       }
+
       #s3 .bento-card {
         padding: 8px;
       }
+
       #s3 .s3-bio-panel {
         padding: 12px 18px;
         max-height: 250px;
@@ -1698,29 +1759,35 @@
         padding: 60px 16px 80px 16px;
         overflow-y: auto;
       }
+
       .sp-container {
         gap: 10px;
       }
+
       .sp-row {
         gap: 8px;
       }
+
       .sp-row .bcard {
         flex: 0 1 calc(50% - 6px);
         min-width: 100px;
         min-height: 110px;
         padding: 10px;
       }
+
       .bcard img {
         height: 50px !important;
       }
+
       .bcard img.large-logo {
         height: 65px !important;
       }
-      
+
       /* Slide 4 - Collage */
       #s2 {
         padding: 60px 16px 80px 16px;
       }
+
       #s2 .collage {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
@@ -1730,6 +1797,7 @@
         padding: 8px;
         gap: 8px;
       }
+
       #s2 .cp {
         transform: none !important;
         border-width: 2px;
@@ -1739,12 +1807,14 @@
       #s4 {
         padding: 60px 16px 80px 16px;
       }
+
       .wishers-grid {
         max-height: 60vh;
         overflow-y: auto;
         padding: 8px;
         gap: 8px;
       }
+
       .wcard {
         flex: 0 1 calc(50% - 6px);
         min-width: 100px;
@@ -1755,18 +1825,23 @@
       #s5 .s5-inner {
         padding: 10px;
       }
+
       #s5 .s5-ty {
         font-size: 60px;
       }
+
       #s5 .s5-msg {
         font-size: 18px;
       }
+
       #s5 .s5-from {
         font-size: 11px;
       }
+
       #s5 .s5-emojis {
         font-size: 28px;
       }
+
       #s5 .s5-tags {
         gap: 12px;
       }
@@ -2027,6 +2102,9 @@
           </div>
         </div>
       </div>
+      <!-- Floating Cricket Button & Tooltip -->
+      <div class="cricket-tooltip">Click here! 🏏</div>
+      <button class="cricket-btn" onclick="openCricketOverlay()" title="Cricket Lives Beyond the Profession">🏏</button>
     </div>
     <div class="slide" id="s2">
       <div class="balloon-layer" id="blayer"></div>
@@ -2044,8 +2122,6 @@
         <div class="cp"><img src="assets/1 (10).png" alt="" /></div>
       </div>
       <div class="s2-sub">A Glimpse into the Journey, Innovation, and Legacy of Our MD 🌟</div>
-      <!-- Floating Cricket Button -->
-      <button class="cricket-btn" onclick="openCricketOverlay()" title="His Dream was Cricket Once">🏏</button>
     </div>
 
     <!-- SLIDE 4: Wishers — Dark -->
@@ -2103,8 +2179,6 @@
           <div class="wname">kashnika</div>
         </div>
       </div>
-      <!-- Floating Cricket Button -->
-      <button class="cricket-btn" onclick="openCricketOverlay()" title="His Dream was Cricket Once">🏏</button>
     </div>
 
     <!-- SLIDE 5: Thank You — Light -->
@@ -2326,7 +2400,7 @@
       curSlide = idx;
       updateNavArrows();
       anims[idx]();
-      
+
       // Auto-restart timer on any manual or auto transition
       startAutoscroll();
     }
