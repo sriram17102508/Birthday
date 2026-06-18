@@ -1485,9 +1485,12 @@
     }
 
     @keyframes tooltipBounce {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateX(0);
       }
+
       50% {
         transform: translateX(-6px);
       }
@@ -2103,9 +2106,6 @@
           </div>
         </div>
       </div>
-      <!-- Floating Cricket Button & Tooltip -->
-      <div class="cricket-tooltip">Click here! 🏏</div>
-      <button class="cricket-btn" onclick="openCricketOverlay()" title="Cricket Lives Beyond the Profession">🏏</button>
     </div>
     <div class="slide" id="s2">
       <div class="balloon-layer" id="blayer"></div>
@@ -2123,6 +2123,9 @@
         <div class="cp"><img src="assets/1 (10).png" alt="" /></div>
       </div>
       <div class="s2-sub">A Glimpse into the Journey, Innovation, and Legacy of Our MD 🌟</div>
+      <!-- Floating Cricket Button & Tooltip -->
+      <div class="cricket-tooltip">Click here! 🏏</div>
+      <button class="cricket-btn" onclick="openCricketOverlay()" title="Cricket Lives Beyond the Profession">🏏</button>
     </div>
 
     <!-- SLIDE 4: Wishers — Dark -->
@@ -2381,7 +2384,7 @@
 
     function updateNavArrows() {
       if (curSlide === TOTAL - 1) {
-        document.getElementById('nav-prev').style.display = 'none';
+        document.getElementById('nav-prev').style.display = 'flex';
         document.getElementById('nav-next').style.display = 'none';
       } else {
         document.getElementById('nav-prev').style.display = 'flex';
