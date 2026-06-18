@@ -2380,10 +2380,13 @@
     }
 
     function updateNavArrows() {
-      // Show left arrow on all slides to support looping backwards
-      document.getElementById('nav-prev').style.display = 'flex';
-      // Hide right arrow on the last slide
-      document.getElementById('nav-next').style.display = curSlide === TOTAL - 1 ? 'none' : 'flex';
+      if (curSlide === TOTAL - 1) {
+        document.getElementById('nav-prev').style.display = 'none';
+        document.getElementById('nav-next').style.display = 'none';
+      } else {
+        document.getElementById('nav-prev').style.display = 'flex';
+        document.getElementById('nav-next').style.display = 'flex';
+      }
     }
 
     function goSlide(idx) {
