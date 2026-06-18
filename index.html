@@ -2380,9 +2380,10 @@
     }
 
     function updateNavArrows() {
-      // Allow navigation arrows to be visible on first/last slides to support looping
+      // Show left arrow on all slides to support looping backwards
       document.getElementById('nav-prev').style.display = 'flex';
-      document.getElementById('nav-next').style.display = 'flex';
+      // Hide right arrow on the last slide
+      document.getElementById('nav-next').style.display = curSlide === TOTAL - 1 ? 'none' : 'flex';
     }
 
     function goSlide(idx) {
@@ -2402,8 +2403,12 @@
       updateNavArrows();
       anims[idx]();
 
-      // Auto-restart timer on any manual or auto transition
-      startAutoscroll();
+      // Auto-restart timer on any slide except the last one
+      if (idx < TOTAL - 1) {
+        startAutoscroll();
+      } else {
+        stopAutoscroll(); // Stop autoscrolling once the last slide is reached
+      }
     }
     function nextSlide() {
       if (curSlide < TOTAL - 1) {
